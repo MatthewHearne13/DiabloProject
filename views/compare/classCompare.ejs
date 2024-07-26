@@ -1,0 +1,161 @@
+<script>
+    function CreateJsonClass(){
+        const jsonObject = {
+            
+                Classes: [
+                  {
+                    Druid: {
+                      TotalHealth: 8,
+                      SingleTargetDPS: 5,
+                      AreaOfEffectDPS: 8,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 7,
+                      Companions: 8,
+                      HealthRegeneration: 8,
+                      DamageResistance: 8
+                    }
+                  },
+                  {
+                    Barbarian: {
+                      TotalHealth: 10,
+                      SingleTargetDPS: 6,
+                      AreaOfEffectDPS: 8,
+                      BuffTeammates: 2,
+                      DeBuffEnemies: 7,
+                      Companions: 0,
+                      HealthRegeneration: 8,
+                      DamageResistance: 10
+                    }
+                  },
+                  {
+                    Sorcerer: {
+                      TotalHealth: 3,
+                      SingleTargetDPS: 10,
+                      AreaOfEffectDPS: 10,
+                      BuffTeammates: 5,
+                      DeBuffEnemies: 10,
+                      Companions: 0,
+                      HealthRegeneration: 4,
+                      DamageResistance: 6
+                    }
+                  },
+                  {
+                    Necromancer: {
+                      TotalHealth: 6,
+                      SingleTargetDPS: 5,
+                      AreaOfEffectDPS: 10,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 6,
+                      Companions: 10,
+                      HealthRegeneration: 5,
+                      DamageResistance: 6
+                    }
+                  },
+                  {
+                    Rogue: {
+                      TotalHealth: 8,
+                      SingleTargetDPS: 8,
+                      AreaOfEffectDPS: 7,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 6,
+                      Companions: 0,
+                      HealthRegeneration: 5,
+                      DamageResistance: 8
+                    }
+                  }
+                ],
+                Value1 : "", 
+                Value2 : ""
+              };
+        return jsonObject;
+        }
+function classDescriptionSolo(name) {
+    let solo;
+    if (name == "Druid") {
+        description = "With its Maul and Shred abilities, the Druid has strong area of effect attacks. Its Debilitating Roar reduces enemies physical defense and fortifies its defenses and restores health, enhancing its already high total health. Finally, they can summon two wolf companions to absorb attacks and provide addition damage. This is why it is the best for playing Solo.";
+    }
+    else if (name== "Rogue") {
+        description = "The Rogues's Invigorating Strike restores energy, allowing them to continue attacking longer. Their Flurry and Barage abilities are have strong area of effect attacks. They can restore health with their Siphoning Strikes ability, and can use Dash to avoid taking damage. The Rogue has no companions, but can use Concealment to hide themselves briefly. This is why it is the best for playing Solo.";
+    }
+    else if (name== "Necromancer") {
+        description = "The Necromancer's best attribute is its army of the undead it can summon as companions. Their Bone Splinters ability can attack multiple enemies, as can the Corpse Explosion. It has the Death's Reach ability to enhance the Necromancer's abiliity to attack at range, using its companions to absorb all the damage. The Necromancer has relatively high levels of total health and health regeneration as well, making it the best for playing Solo.";
+    }
+    else if (name== "Barbarian") {
+        description = "The Barbarian has by far the highest levels of total health and defense abilities, making it the most survivable character. Its Frenzy and Whirlwind abilities are very strong area of effect attacks. The Barbarian has no companions, but doesn't need them with its Ground Stomp ability that even further fortifies its defenses. This is the best character for playing Solo.";
+    }
+    else if (name== "Sorcerer") {
+        description = "The Sorcerer has the lowest health levels, but can be the most survivable character using its Teleport and Ice Armor. They can freeze enemies using Frozen Orb. Their Chain Lignthing ability is the strongest area of effect attack in the game. They can also summon fire serpents with their Hydra ability, making them the best class for playing Solo.";
+    }
+    return description;
+}
+
+function classDescriptionGroup(name) {
+    let group;
+    if (name == "Druid") {
+        descriptionGroup = "The druids Claw and Shred abilities are powerful against groups of enemies. They have a poison capability to immobilize and poison their enemies. Their Trample ability also de-buffs the enemy by knocking them down. Finally, their Petrify ability can encase nearby enemies in stone, stunning them for 3 seconds. Because of all of these powerful attacks and debilitating de-buffs, the Druid is the strongest class for playing in a group.";
+    }
+    else if (name== "Rogue") {
+        descriptionGroup = "The Rogue has strong single target attacks, Heart Seeker, and Forceful Arrow. Their Puncture ability throws blades at a short distance and slow enemies. Their Barrage, Penetrating Shot, and Rapid-Fire abilities are powerful ranged attacks for groups of enemies. With all these powerful attacks, the Rogue can deal massive damage and is the best for using in a group.";
+    }
+    else if (name== "Necromancer") {
+        descriptionGroup = "The Necromancer’s Blood Lance and Sever abilities are very powerful when fighting against a group of enemies. The Corpse Explosion ability causes one of your army of undead soldiers to explode when killed, causing massive amount of damage to a group in a small area. Their Iron Maiden and Decrepify are strong curses that weaken the enemy.  Using their de-buffing curses, strong area of affect attacks and the huge damage from their companions, the Necromancer is well suited for playing in a group.";
+    }
+    else if (name== "Barbarian") {
+        descriptionGroup = "The Barbarian is a damage dealing, axe, sword, and hammer wielding machine. They have many attacks that cause enemies to bleed, weakening them, like Flay and Rend. Their War Cry buffs other players by increasing their Allies’ attack power. They can decimate single targets using Lunging Strike or Bash but specialize in destroying groups with AOE attacks like Hammer of the Ancients, Double Swing, and Whirlwind. This makes the Barbarian the such a strong class for playing in a group.";
+    }
+    else if (name== "Sorcerer") {
+        descriptionGroup = "The sorcerer specializes in the mystic arts and destroying enemies at a distance. The Arc Lash and Chain Lightning abilities are extremely powerful against a group. Chain Lightning is unique, because it can chain back from the target to the sorcerer back to the target. This makes it extremely powerful against groups and single target bosses like Lilith. The Frozen Orb and Ice Shard abilities slow and weaken enemies, while the Frost Nova freezes them completely for a short time. Finally the Ball Lightning, Inferno, and Unstable Currents are wreck havoc to groups or single targets. This damage dealing and freezing abilities make the Sorcerer such a powerful class in a group.";
+    }
+    return descriptionGroup;
+}
+
+window.onload = async function sendCompareRequest() {
+    let queryparams = location.href.split("?")[1].split('&');
+    let value1 = queryparams[0].split('=')[1];
+    let value2 = queryparams[1].split('=')[1];
+    let jsonToSend = CreateJsonClass();
+    jsonToSend["Value1"] = value1;
+    jsonToSend["Value2"] = value2;
+    const response = await fetch('http://127.0.0.1:8000/compare', {
+        method: "POST",
+        body: JSON.stringify(jsonToSend)
+    });
+    const body = await response.json();
+    let bestClass = body["Result"];
+    let solo = bestClass["Solo"];
+    let group = bestClass["Group"];
+    
+    let image = document.createElement("IMG");
+    image.setAttribute("src", "/"+solo+".jpg");
+    let soloImg = document.getElementById("soloImage");
+    soloImg.appendChild(image);
+
+    let class1 = document.getElementById("solo");
+    class1.innerText += " " + solo + ".";
+    let des = classDescriptionSolo(solo);
+    let class2 = document.getElementById("description1");
+    class2.innerText = des;
+
+    let groupImage = document.createElement("IMG");
+    groupImage.setAttribute("src", "/"+group+".jpg");
+    let groupImg = document.getElementById("groupImage");
+    groupImg.appendChild(groupImage);
+
+    let class1Group = document.getElementById("group");
+    class1Group.innerText += " " + group + ".";
+    let desc = classDescriptionGroup(group);
+    let class2Group = document.getElementById("description2");
+    class2Group.innerText = desc;
+}
+
+</script>
+<h2>Comparison</h2>
+<br>
+<h3 id="solo"> The best class between the two for playing solo is the
+</h3>
+<p id="description1"></p>
+<p id="soloImage" class="image"></p>
+<br>
+<h3 id="group"> For playing in a group, the better class is the </h3>
+<p id="description2"></p>
+<p id="groupImage" class="image"></p>

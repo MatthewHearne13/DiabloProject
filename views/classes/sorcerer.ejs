@@ -1,0 +1,48 @@
+<script>
+    function sendCompare() {
+        let classCompare1 = document.getElementById("classCompare1");
+        let classCompare2 = document.getElementById("classCompare2");
+        let value1 = classCompare1.options[classCompare1.selectedIndex].value;
+        let value2 = classCompare2.options[classCompare2.selectedIndex].value;
+        console.log(value1);
+        window.location='../compare/classCompare?val1=' + value1 +'&val2=' + value2;
+
+    }
+</script>
+
+<h1>Sorcerer</h1>
+<p>
+    To best manage hordes of enemies, you can't go wrong with the Sorcerer. 
+    The Sorcerer can utilise the elemental powers of lightning, fire and frost, which can really aid your party 
+    when going up against some of Diablo 4's most dangerous foes - and absolutely rips through large groups from afar with 
+    his deadly ranged attacks. This untold power is not without its limit, however, as the Sorcerer has the lowest health 
+    out of all the classes, leaving them potentially vulnerable to enemies resistant to certain types of damage. 
+    They can however slow enemies with ice or puts damage over time with fire. They are best when used in a group because of 
+    their ability to weaken or slow enemies and their high damage at range.
+</p>
+
+
+    <fieldset>
+        <legend>Select a Class to compare</legend>
+        <label for="classCompare1"> </label>
+            <select name="class1" id="classCompare1">
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Necromancer">Necromancer</option>
+                <option value="Druid">Druid</option>
+                <option value="Barbarian">Barbarian</option>
+            </select>
+
+        <label for="classCompare2"> </label>
+            <select name="class2" id="classCompare2">
+                <option value="Barbarian">Barbarian</option>
+                <option value="Druid">Druid</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+        <br>
+        <button id="classCompare" onclick=sendCompare() type="submit">Submit Classes</button>
+    </fieldset>
+    
+    <img src="../Sorcerer.jpg" class="image">

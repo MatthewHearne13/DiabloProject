@@ -1,0 +1,124 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/groupOrSolo.css">
+
+<script>
+    function CreateJsonClass(){
+        const jsonObject = {
+            
+                Classes: [
+                  {
+                    Druid: {
+                      TotalHealth: 8,
+                      SingleTargetDPS: 5,
+                      AreaOfEffectDPS: 8,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 7,
+                      Companions: 8,
+                      HealthRegeneration: 8,
+                      DamageResistance: 8
+                    }
+                  },
+                  {
+                    Barbarian: {
+                      TotalHealth: 10,
+                      SingleTargetDPS: 6,
+                      AreaOfEffectDPS: 8,
+                      BuffTeammates: 2,
+                      DeBuffEnemies: 7,
+                      Companions: 0,
+                      HealthRegeneration: 8,
+                      DamageResistance: 10
+                    }
+                  },
+                  {
+                    Sorcerer: {
+                      TotalHealth: 3,
+                      SingleTargetDPS: 10,
+                      AreaOfEffectDPS: 10,
+                      BuffTeammates: 5,
+                      DeBuffEnemies: 10,
+                      Companions: 0,
+                      HealthRegeneration: 4,
+                      DamageResistance: 6
+                    }
+                  },
+                  {
+                    Necromancer: {
+                      TotalHealth: 6,
+                      SingleTargetDPS: 5,
+                      AreaOfEffectDPS: 10,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 6,
+                      Companions: 10,
+                      HealthRegeneration: 5,
+                      DamageResistance: 6
+                    }
+                  },
+                  {
+                    Rogue: {
+                      TotalHealth: 8,
+                      SingleTargetDPS: 8,
+                      AreaOfEffectDPS: 7,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 6,
+                      Companions: 0,
+                      HealthRegeneration: 5,
+                      DamageResistance: 8
+                    }
+                  }
+                ]
+              }
+        return jsonObject;
+        }
+    
+    function classDescription(name) {
+        let description;
+        if (name == "Druid") {
+            description = "The druids Claw and Shred abilities are powerful against groups of enemies. They have a poison capability to immobilize and poison their enemies. Their Trample ability also de-buffs the enemy by knocking them down. Finally, their Petrify ability can encase nearby enemies in stone, stunning them for 3 seconds. Because of all of these powerful attacks and debilitating de-buffs, the Druid is the strongest class for playing in a group.";
+        }
+        else if (name== "Rogue") {
+            description = "The Rogue has strong single target attacks, Heart Seeker, and Forceful Arrow. Their Puncture ability throws blades at a short distance and slow enemies. Their Barrage, Penetrating Shot, and Rapid-Fire abilities are powerful ranged attacks for groups of enemies. With all these powerful attacks, the Rogue can deal massive damage and is the best for using in a group.";
+        }
+        else if (name== "Necromancer") {
+            description = "The Necromancer’s Blood Lance and Sever abilities are very powerful when fighting against a group of enemies. The Corpse Explosion ability causes one of your army of undead soldiers to explode when killed, causing massive amount of damage to a group in a small area. Their Iron Maiden and Decrepify are strong curses that weaken the enemy.  Using their de-buffing curses, strong area of affect attacks and the huge damage from their companions, the Necromancer is well suited for playing in a group.";
+        }
+        else if (name== "Barbarian") {
+            description = "The Barbarian is a damage dealing, axe, sword, and hammer wielding machine. They have many attacks that cause enemies to bleed, weakening them, like Flay and Rend. Their War Cry buffs other players by increasing their Allies’ attack power. They can decimate single targets using Lunging Strike or Bash but specialize in destroying groups with AOE attacks like Hammer of the Ancients, Double Swing, and Whirlwind. This makes the Barbarian the such a strong class for playing in a group.";
+        }
+        else if (name== "Sorcerer") {
+            description = "The sorcerer specializes in the mystic arts and destroying enemies at a distance. The Arc Lash and Chain Lightning abilities are extremely powerful against a group. Chain Lightning is unique, because it can chain back from the target to the sorcerer back to the target. This makes it extremely powerful against groups and single target bosses like Lilith. The Frozen Orb and Ice Shard abilities slow and weaken enemies, while the Frost Nova freezes them completely for a short time. Finally the Ball Lightning, Inferno, and Unstable Currents are wreck havoc to groups or single targets. This damage dealing and freezing abilities make the Sorcerer such a powerful class in a group.";
+        }
+        return description;
+    }
+
+    window.onload = async function sendGroupRequest() {
+        const jsonToSend = CreateJsonClass();
+        const response = await fetch('http://127.0.0.1:8000/group', {
+          method: "POST",
+          body: JSON.stringify(jsonToSend)
+        });
+        const body = await response.json();
+        let bestClass = body["class"];
+        console.log(bestClass);
+
+        let image = document.createElement("IMG");
+        image.setAttribute("src", "/"+bestClass+".jpg");
+        document.body.appendChild(image);
+
+        const class1 = document.getElementById("class");
+        class1.innerText += " " + bestClass + ".";
+        const des = classDescription(bestClass);
+        const class2 = document.getElementById("description");
+        class2.innerText = des;
+    }
+    
+    </script>
+<h2>Group Play</h2>
+<br>
+<p id="class">When playing in a group, the most important class traits are how much damage per second you do to a single target,
+area of affect damage per second, your ability to enhance or “buff” teammates, and your ability to weaken or “de-buff” enemies. These traits allow you to inflict the most damage to groups of enemies,
+aid your fellow saviors of Sanctuary, and to inflict maximum damage to bosses using strong single target attacks. The best class for playing in a group is 
+</p>
+<br>
+<p id="description"></p>
+ 
+

@@ -1,0 +1,231 @@
+/*  ===== MOBILE styles (reside at the top and are inherited by all devices) ===== */
+/*  ===== See tablet, desktop, and print @media queries at the bottom. */
+
+
+/*   ----- Imports  -----  */
+  /* Add fonts from the app's server */
+   /* @font-face {                
+      font-family: 'FontName';
+      src: url('FontName.woff2') format('woff2');
+    } 
+    ...or hosted services like Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poltawski+Nowy&display=swap');
+  
+    @import "~react-image-gallery/styles/css/image-gallery.css";
+  /* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+        /* npm install modern-normalize
+          Resets elements for browser consistency.  
+          https://www.npmjs.com/package/modern-normalize
+        */         
+  
+  /* Component-specific stylesheets, if any. 
+    @import "component1.css";   
+  */
+
+/*   ----- Variables  -----  */
+:root {
+    --red:#750606;
+    --white:#FAF9F7;
+    --grey:#A3AEC0;
+    --light-blue:#4068A380;
+  }
+  
+  /*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+  body {       /* Can alternatively define in html {} or :root {} */
+    
+    background-attachment: fixed;
+    background-image: url(/backgroundImage.jpg);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#FAF9F7;
+    font-family:'Poltawski Nowy', serif; /* Define with at least one font name and its related generic family name.*/
+    font-size:x-large;
+    margin: 3%;
+    padding: left 15%;
+    padding: right 15%;
+    text-align: center;
+  }
+  
+  /*  ----- Page layout blocks -----  */
+  header, footer {
+    background-color: black;
+    color: var(--red);
+    margin:0;
+    padding:1% 5%;
+    border: 3px var(--red) solid;
+    border-radius: 5px;
+  }
+  main {
+    background-color: #4068A3;
+    color: #FAF9F7;
+    margin: 20px;
+    border-radius: 5px;
+  }
+  section {}
+    article {}
+      #topic1 {}
+      #topic2 {}
+  div {}
+  aside {}
+  
+  /* ----- Anchors ----- Text links */
+  a { text-align: center;
+    display: inline;
+  }
+  a:link {
+    text-align: center;
+    display: inline;
+  }
+   
+  /*  ----- Navigation ----- Override text links for navigation only.  */
+  nav {
+    text-align: center;
+    display: block;
+    margin: 10px;
+  }
+  nav a {
+    background-color: var(--red);
+    display: inline;
+    border: 2% var(--grey);
+    border-radius: 5px;
+    color:white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 5px;
+    padding: 2px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+  }
+  nav a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+   /* -----  Typography  ----- */
+ ul {
+    list-style-type: none;
+
+ }
+
+ li {
+    display: inline;
+ }
+  
+  h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    
+} 
+
+  
+  /*  ----- Table ----- */
+  table {
+    border-collapse:collapse;
+    background-color: #092052;
+    width: 100%;
+    margin: 1%;
+  }
+  caption {
+    background-color:#4068A3;  
+  border:2px solid #A3AEC0;  
+  color:#FAF9F7;
+  font-weight:bold;
+  padding:1% 0
+  }
+  thead {}
+  tbody {}
+  tfoot {}
+  tr th, 
+  tr td { 
+    border-bottom: 2px solid #A3AEC0;
+    padding:-1%;
+    text-align: left;
+  }
+  
+    tr:nth-child(even) td {background-color: #4068A3;}
+    tr:nth-child(odd) td {background-color: #754D4B;}
+ 
+    td:nth-child(1) {}
+  colgroup {}
+  data {}
+  datalist {} 
+  
+  
+  /*  ----- Form ----- */
+form, select, textarea {
+  font-family: 'Poltawski Nowy', serif;
+  font-size: larger;
+  
+}
+button { 
+  font-family: 'Poltawski Nowy', serif;
+  font-size: x-large;
+  background-color:var(--red);
+  border: black solid 2px;
+  color: white;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+}
+button:hover{
+    color: var(--red);
+    background-color: white;
+}
+fieldset {
+  border: 2px var(--red) solid;
+  background-color: black;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  max-width: 40%;
+  margin-inline-start: 30%;
+  align-self: center;
+}
+  legend {
+    border: 2px var(--red) solid;
+    max-width: 30%;
+  }
+  label {
+    display: block;
+    margin-top: 2%;
+    font-size: 90%;
+  }
+    input {
+      padding: 1%;
+      font-size: 110%;
+      font-family: 'Poltawski Nowy', serif;
+    }
+    
+    select {
+      font-family: 'Poltawski Nowy', serif;
+    }
+    :focus{
+      background-color: #A3AEC0;
+    }
+    :required {
+      border: 3px red solid; 
+    }
+    label.required:after{
+      content:" *";
+      color: red;
+    }
+    ::placeholder {
+      color: #092052;
+    }
+      optgroup {}
+      option {}
+  
+  
+  /*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+      
+}
+
+  

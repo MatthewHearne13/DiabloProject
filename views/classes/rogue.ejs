@@ -1,0 +1,49 @@
+<script>
+    function sendCompare() {
+        let classCompare1 = document.getElementById("classCompare1");
+        let classCompare2 = document.getElementById("classCompare2");
+        let value1 = classCompare1.options[classCompare1.selectedIndex].value;
+        let value2 = classCompare2.options[classCompare2.selectedIndex].value;
+        console.log(value1);
+        window.location='../compare/classCompare?val1=' + value1 +'&val2=' + value2;
+
+    }
+</script>
+
+<h1>Rogue</h1>
+
+<p>
+    Diablo 4's Rogue is the most balanced class of all, offering a hybrid of all other classes. 
+    The Rogue makes use of melee and ranged attacks and has skills pertaining to each style of play. 
+    The Shadow Realm sees a melee-orientated Rogue be able to single out an enemy in a void and take them out, 
+    while enemies outside of this void vanish temporarily, meaning you are safe to wreak havoc individually. 
+    Exploit Weakness does exactly what it says on the title: You're shown an enemy's weakness so you are able to use
+    the best attack to take them down efficiently.
+</p>
+
+
+    <fieldset>
+        <legend>Select a Class to compare</legend>
+        <label for="classCompare1"> </label>
+            <select name="class1" id="classCompare1">
+                <option value="Rogue">Rogue</option>
+                <option value="Necromancer">Necromancer</option>
+                <option value="Druid">Druid</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Sorcerer">Sorcerer</option>
+            </select>
+
+        <label for="classCompare2"> </label>
+            <select name="class2" id="classCompare2">
+                <option value="Barbarian">Barbarian</option>
+                <option value="Druid">Druid</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+        <br>
+         <button id="classCompare" onclick=sendCompare() type="submit">Submit Classes</button>
+    </fieldset>
+
+    <img src="../Rogue.jpg" class="image">
+    

@@ -1,0 +1,48 @@
+<script>
+    function sendCompare() {
+        let classCompare1 = document.getElementById("classCompare1");
+        let classCompare2 = document.getElementById("classCompare2");
+        let value1 = classCompare1.options[classCompare1.selectedIndex].value;
+        let value2 = classCompare2.options[classCompare2.selectedIndex].value;
+        console.log(value1);
+        window.location='../compare/classCompare?val1=' + value1 +'&val2=' + value2;
+
+    }
+</script>
+
+<h1>Barbarian</h1>
+
+<p> The Barbarian has the highest levels of strength and health. Just like in previous versions of Diablo,
+    Barbarians generate the Fury resource with every attack, giving them the option to use skills that require
+    Fury for exceptionally brutal demon-slaying.  Good for solo or tanking in a group. They are a straight-forward
+    mele class. They have no effective range weapons and have a relatively short range when attacking with their
+    swords or axes. Their ability to buff other players is minimal, but they can make other allies seem stronger
+    by  weakening their opponents.
+
+</p>
+
+
+    <fieldset>
+        <legend>Select a Class to compare</legend>
+        <label for="classCompare1"> </label>
+            <select name="class1" id="classCompare1">
+                <option value="Barbarian">Barbarian</option>
+                <option value="Druid">Druid</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+
+        <label for="classCompare2"> </label>
+            <select name="class2" id="classCompare2">
+                <option value="Druid">Druid</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+        <br>
+        <button id="classCompare" onclick=sendCompare() type="submit">Submit Classes</button>
+    </fieldset>
+
+    <img src="../Barbarian.jpg" class="image">

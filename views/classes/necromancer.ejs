@@ -1,0 +1,47 @@
+<script>
+    function sendCompare() {
+        let classCompare1 = document.getElementById("classCompare1");
+        let classCompare2 = document.getElementById("classCompare2");
+        let value1 = classCompare1.options[classCompare1.selectedIndex].value;
+        let value2 = classCompare2.options[classCompare2.selectedIndex].value;
+        console.log(value1);
+        window.location='../compare/classCompare?val1=' + value1 +'&val2=' + value2;
+
+    }
+</script>
+
+<h1>Necromancer</h1>
+
+<p> The Necromancer is one of the most unique classes in the game. Its defining characteristic is its
+    ability to raise undead minions to do your bidding. The Necromancer can have a whole host of companions to
+    tank and deal damage for them. This makes them very good for first time players or players that are saving
+    Sanctuary Solo. They are an adaptable and strong class but are not as strong at dealing damage as other classes 
+    and relatively fragile compared to other classes as well. The are a perfect class for first time players, or for 
+    people who plan to go solo at times and team up with other classes for dungeons or bosses. 
+</p>
+
+
+    <fieldset>
+        <legend>Select a Class to compare</legend>
+        <label for="classCompare1"> </label>
+            <select name="class1" id="classCompare1">
+                <option value="Necromancer">Necromancer</option>
+                <option value="Druid">Druid</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+            </select>
+
+        <label for="classCompare2"> </label>
+            <select name="class2" id="classCompare2">
+                <option value="Barbarian">Barbarian</option>
+                <option value="Druid">Druid</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+        <br>
+         <button id="classCompare" onclick=sendCompare() type="submit">Submit Classes</button>
+    </fieldset>
+    
+    <img src="../Necromancer.jpg" class="image">

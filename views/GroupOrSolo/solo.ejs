@@ -1,0 +1,126 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/groupOrSolo.css">
+<script>
+    function CreateJsonClass(){
+        const jsonObject = {
+            
+                Classes: [
+                  {
+                    Druid: {
+                      TotalHealth: 8,
+                      SingleTargetDPS: 5,
+                      AreaOfEffectDPS: 8,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 7,
+                      Companions: 8,
+                      HealthRegeneration: 8,
+                      DamageResistance: 8
+                    }
+                  },
+                  {
+                    Barbarian: {
+                      TotalHealth: 10,
+                      SingleTargetDPS: 6,
+                      AreaOfEffectDPS: 8,
+                      BuffTeammates: 2,
+                      DeBuffEnemies: 7,
+                      Companions: 0,
+                      HealthRegeneration: 8,
+                      DamageResistance: 10
+                    }
+                  },
+                  {
+                    Sorcerer: {
+                      TotalHealth: 3,
+                      SingleTargetDPS: 10,
+                      AreaOfEffectDPS: 10,
+                      BuffTeammates: 5,
+                      DeBuffEnemies: 10,
+                      Companions: 0,
+                      HealthRegeneration: 4,
+                      DamageResistance: 6
+                    }
+                  },
+                  {
+                    Necromancer: {
+                      TotalHealth: 6,
+                      SingleTargetDPS: 5,
+                      AreaOfEffectDPS: 10,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 6,
+                      Companions: 10,
+                      HealthRegeneration: 5,
+                      DamageResistance: 6
+                    }
+                  },
+                  {
+                    Rogue: {
+                      TotalHealth: 8,
+                      SingleTargetDPS: 8,
+                      AreaOfEffectDPS: 7,
+                      BuffTeammates: 4,
+                      DeBuffEnemies: 6,
+                      Companions: 0,
+                      HealthRegeneration: 5,
+                      DamageResistance: 8
+                    }
+                  }
+                ]
+              };
+        return jsonObject;
+        }
+    
+    function classDescription(name) {
+        let description;
+        if (name == "Druid") {
+            description = "With its Maul and Shred abilities, the Druid has strong area of effect attacks. Its Debilitating Roar reduces enemies physical defense and fortifies its defenses and restores health, enhancing its already high total health. Finally, they can summon two wolf companions to absorb attacks and provide addition damage. This is why it is the best for playing Solo.";
+        }
+        else if (name== "Rogue") {
+            description = "The Rogues's Invigorating Strike restores energy, allowing them to continue attacking longer. Their Flurry and Barage abilities are have strong area of effect attacks. They can restore health with their Siphoning Strikes ability, and can use Dash to avoid taking damage. The Rogue has no companions, but can use Concealment to hide themselves briefly. This is why it is the best for playing Solo.";
+        }
+        else if (name== "Necromancer") {
+            description = "The Necromancer's best attribute is its army of the undead it can summon as companions. Their Bone Splinters ability can attack multiple enemies, as can the Corpse Explosion. It has the Death's Reach ability to enhance the Necromancer's abiliity to attack at range, using its companions to absorb all the damage. The Necromancer has relatively high levels of total health and health regeneration as well, making it the best for playing Solo.";
+        }
+        else if (name== "Barbarian") {
+            description = "The Barbarian has by far the highest levels of total health and defense abilities, making it the most survivable character. Its Frenzy and Whirlwind abilities are very strong area of effect attacks. The Barbarian has no companions, but doesn't need them with its Ground Stomp ability that even further fortifies its defenses. This is the best character for playing Solo.";
+        }
+        else if (name== "Sorcerer") {
+            description = "The Sorcerer has the lowest health levels, but can be the most survivable character using its Teleport and Ice Armor. They can freeze enemies using Frozen Orb. Their Chain Lignthing ability is the strongest area of effect attack in the game. They can also summon fire serpents with their Hydra ability, making them the best class for playing Solo.";
+        }
+        return description;
+    }
+
+    window.onload = async function sendSoloRequest() {
+        const jsonToSend = CreateJsonClass();
+        const response = await fetch('http://127.0.0.1:8000/solo', {
+          method: "POST",
+          body: JSON.stringify(jsonToSend)
+        });
+        const body = await response.json();
+        let bestClass = body["class"];
+        console.log(bestClass);
+
+        let image = document.createElement("IMG");
+        image.setAttribute("src", "/"+bestClass+".jpg");
+        document.body.appendChild(image);
+
+        const class1 = document.getElementById("class");
+        class1.innerText += " " + bestClass + ".";
+        const des = classDescription(bestClass);
+        const class2 = document.getElementById("description");
+        class2.innerText = des;
+    }
+    
+    </script>
+<body>
+<h2>Solo Play</h2>
+<br>
+<p id="class">The most important traits for playing Solo are your classes Total Health, the presence or absence of Companions, 
+    your characters ability to regain health, their ability to resist taking damage, and their area of effect damage per second.
+    Based off of these characteristics, the best class for playing Solo is the 
+</p>
+<br>
+<p id="description"></p>
+</body>
+
+ 
+

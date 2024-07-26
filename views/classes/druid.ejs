@@ -1,0 +1,48 @@
+<script>
+    function sendCompare() {
+        let classCompare1 = document.getElementById("classCompare1");
+        let classCompare2 = document.getElementById("classCompare2");
+        let value1 = classCompare1.options[classCompare1.selectedIndex].value;
+        let value2 = classCompare2.options[classCompare2.selectedIndex].value;
+        console.log(value1);
+        window.location='../compare/classCompare?val1=' + value1 +'&val2=' + value2;
+
+    }
+</script>
+
+<h1>Druid</h1>
+
+<p>
+    The Druid is a shapeshifting beast of a character. They have the ability to turn into a Wereworlf or Werebear.
+    Like the Barbarian, the Druid is primarily a mele attack class but has magical abilities to attack at range as well.
+    No matter which is the best version of you, two wolf companions will always be by your side, ripping lesser foes apart - 
+    which is very handy indeed when navigating the perils facing Sanctuary. The Druid has high area of effect attacks used to
+    damage multiple enemies at one time but low single target damage. This makes them good for large crowds but Bosses will be
+    difficult. The Druid's best features are there two wolf companions as well as their high levels of health regeneration and
+    damage resistance. This makes them a strong character for playing solo.
+</p>
+
+    <fieldset>
+        <legend>Select a Class to compare</legend>
+        <label for="classCompare1"> </label>
+            <select name="class1" id="classCompare1">
+                <option value="Druid">Druid</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+
+        <label for="classCompare2"> </label>
+            <select name="class2" id="classCompare2">
+                <option value="Barbarian">Barbarian</option>
+                <option value="Druid">Druid</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Necromancer">Necromancer</option>
+            </select>
+        <br>
+        <button id="classCompare" onclick=sendCompare() type="submit">Submit Classes</button>
+    </fieldset>
+    
+    <img src="../Druid.jpg" class="image">
